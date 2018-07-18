@@ -1,0 +1,2 @@
+require './kanji'
+run Sinatra::
