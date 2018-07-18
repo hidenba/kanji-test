@@ -1,0 +1,27 @@
+:scss
+  body {
+    background: #f0f0f0
+  }
+  .main {
+    width: 1600px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .box {
+    width: 260px;
+    margin: 25px 25px;
+    font-size: 25px;
+  }
+.main
+  - words.each.with_index(1) do |word, ix|
+    :ruby
+      first = word[:text].index(word[:target])
+      last = first + word[:target].length.pred
+      range = (first..last)
+    .box
+      #{ix}.
+      - if range.first.nonzero?
+        = word[:text].slice(0..range.first.pred)
+      %span(style="background: yellow;")= word[:text].slice(range)
+      - unless range.last == word[:text].length.pred
+        = word[:text].slice(range.last.next,100)
