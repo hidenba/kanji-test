@@ -1,2 +1,2 @@
 require './kanji'
-run Sinatra::
+run Sinatra::Application
